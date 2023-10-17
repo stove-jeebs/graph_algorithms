@@ -1,9 +1,8 @@
 use std::{collections::HashMap, io::stdin};
 
-#[cfg(test)]
-pub mod unit_test;
-
+pub mod component_order;
 pub mod girth;
+pub mod size;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct Vertex(pub usize);
@@ -21,7 +20,7 @@ fn read_graph() -> Option<(GraphAdjList, usize)> {
     let num_nodes: usize = num_nodes
         .trim()
         .parse()
-        .expect("Failed to parse num_nodes into i32");
+        .expect("Failed to parse num_nodes into usize");
 
     if num_nodes == 0 {
         return None;
@@ -52,9 +51,11 @@ fn read_graph() -> Option<(GraphAdjList, usize)> {
 
 fn main() {
     let mut idx = 1;
-    while let Some((mut graph, num_nodes)) = read_graph() {
-        let g = girth::compute_girth(&mut graph, num_nodes);
-        println!("Graph {} has girth {}.", idx, g);
+    while let Some((mut graph, _num_nodes)) = read_graph() {
+        // task 1
+        size::print(idx, &graph);
+        // task 5
+        girth::print(idx, &mut graph, _num_nodes);
         idx += 1;
     }
 }

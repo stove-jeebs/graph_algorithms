@@ -29,7 +29,7 @@ pub fn vet_cycle_len_bfs(graph: &mut GraphAdjList, start_vet: Vertex) -> usize {
             }
         }
     }
-    return usize::MAX;
+    usize::MAX
 }
 
 pub fn compute_girth(graph: &mut GraphAdjList, num_nodes: usize) -> String {

@@ -1,30 +1,29 @@
 use crate::{GraphAdjList, Vertex};
 use std::collections::{HashSet, VecDeque};
 
-fn dfs(vet: Vertex, graph: &GraphAdjList, visited: &mut HashSet<Vertex>) -> usize {
-    if visited.contains(&vet) {
+// find the order of a component
+fn dfs(start_vet: &Vertex, graph: &GraphAdjList, visited: &mut HashSet<Vertex>) -> usize {
+    if visited.contains(&start_vet) {
         return 0;
     }
-    let mut res = vec![];
-    let mut temp_visited = HashSet::new();
-    temp_visited.insert(vet);
+    let mut order = 0;
+    visited.insert(*start_vet);
     let mut que = VecDeque::new();
-    que.push_back(vet);
+    que.push_back(*start_vet);
     while !que.is_empty() {
         let vet = que.pop_front().unwrap();
-        res.push(vet);
+        order += 1;
         if let Some(adj_vets) = graph.adj_list.get(&vet) {
             for &adj_vet in adj_vets {
-                if temp_visited.contains(&adj_vet) {
+                if visited.contains(&adj_vet) {
                     continue;
                 }
                 que.push_back(adj_vet);
-                temp_visited.insert(adj_vet);
+                visited.insert(adj_vet);
             }
         }
     }
-    visited.extend(temp_visited);
-    res.len()
+    order
 }
 
 pub fn largest_component_order(graph: &GraphAdjList) -> usize {
@@ -32,7 +31,7 @@ pub fn largest_component_order(graph: &GraphAdjList) -> usize {
     let mut max_order = 0;
 
     for (node, _) in graph.adj_list.iter() {
-        let order = dfs(*node, &graph, &mut visited);
+        let order = dfs(node, &graph, &mut visited);
         if order > max_order {
             max_order = order;
         }
@@ -58,7 +57,7 @@ mod tests {
         let graph = GraphAdjList::new();
         let vet = Vertex(1);
         let mut visited = HashSet::from([Vertex(0), Vertex(1)]);
-        assert_eq!(dfs(vet, &graph, &mut visited), 0);
+        assert_eq!(dfs(&vet, &graph, &mut visited), 0);
     }
 
     #[test]
@@ -66,7 +65,7 @@ mod tests {
         let graph = GraphAdjList::new();
         let vet = Vertex(1);
         let mut visited = HashSet::from([Vertex(0), Vertex(2)]);
-        assert_eq!(dfs(vet, &graph, &mut visited), 1);
+        assert_eq!(dfs(&vet, &graph, &mut visited), 1);
     }
 
     #[test]

@@ -2,6 +2,7 @@ use std::{collections::HashMap, io::stdin};
 
 pub mod component_order;
 pub mod girth;
+pub mod matrix;
 pub mod size;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]

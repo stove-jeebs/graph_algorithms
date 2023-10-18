@@ -57,7 +57,6 @@ mod tests {
     fn test_dfs_visited_vet() {
         let graph = GraphAdjList::new();
         let vet = Vertex(1);
-        // let mut visited = vec![Vertex(0), Vertex(1)];
         let mut visited = HashSet::from([Vertex(0), Vertex(1)]);
         assert_eq!(dfs(vet, &graph, &mut visited), 0);
     }

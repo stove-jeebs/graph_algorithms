@@ -1,7 +1,7 @@
 use crate::{GraphAdjList, Vertex};
 use std::collections::{HashMap, VecDeque};
 
-pub fn vet_cycle_len_bfs(graph: &mut GraphAdjList, start_vet: Vertex) -> usize {
+fn vet_cycle_len_bfs(graph: &GraphAdjList, start_vet: Vertex) -> usize {
     let mut que = VecDeque::new();
     let mut visited: HashMap<Vertex, Option<Vertex>> = HashMap::new();
     let mut depths = HashMap::new();
@@ -32,7 +32,7 @@ pub fn vet_cycle_len_bfs(graph: &mut GraphAdjList, start_vet: Vertex) -> usize {
     usize::MAX
 }
 
-pub fn compute_girth(graph: &mut GraphAdjList, num_nodes: usize) -> String {
+pub fn compute_girth(graph: &GraphAdjList, num_nodes: usize) -> String {
     let mut girth = usize::MAX;
     for i in 0..num_nodes {
         let node = vet_cycle_len_bfs(graph, Vertex(i));
@@ -49,7 +49,7 @@ pub fn compute_girth(graph: &mut GraphAdjList, num_nodes: usize) -> String {
     }
 }
 
-pub fn print(idx: usize, graph: &mut GraphAdjList, num_nodes: usize) {
+pub fn print(idx: usize, graph: &GraphAdjList, num_nodes: usize) {
     let girth = compute_girth(graph, num_nodes);
     println!("Graph {idx} has girth {girth}.");
 }
@@ -57,55 +57,46 @@ pub fn print(idx: usize, graph: &mut GraphAdjList, num_nodes: usize) {
 #[cfg(test)]
 mod test {
     use super::*;
-    use crate::girth;
 
     #[test]
     fn test_vet_cycle_len_bfs_no_cycle() {
-        let mut graph = GraphAdjList {
-            adj_list: HashMap::new(),
-        };
-        graph.adj_list.insert(Vertex(0), vec![Vertex(1)]);
-        graph.adj_list.insert(Vertex(1), vec![Vertex(0), Vertex(2)]);
-        graph.adj_list.insert(Vertex(2), vec![Vertex(1)]);
+        let mut graph = GraphAdjList::new();
+        graph.add_adj_list(Vertex(0), vec![Vertex(1)]);
+        graph.add_adj_list(Vertex(1), vec![Vertex(0), Vertex(2)]);
+        graph.add_adj_list(Vertex(2), vec![Vertex(1)]);
 
-        assert_eq!(girth::vet_cycle_len_bfs(&mut graph, Vertex(0)), usize::MAX);
+        assert_eq!(vet_cycle_len_bfs(&mut graph, Vertex(0)), usize::MAX);
     }
 
     #[test]
     fn test_vet_cycle_len_bfs_with_cycle() {
-        let mut graph = GraphAdjList {
-            adj_list: HashMap::new(),
-        };
-        graph.adj_list.insert(Vertex(0), vec![Vertex(1)]);
-        graph.adj_list.insert(Vertex(1), vec![Vertex(0), Vertex(2)]);
-        graph.adj_list.insert(Vertex(2), vec![Vertex(1), Vertex(3)]);
-        graph.adj_list.insert(Vertex(3), vec![Vertex(2), Vertex(0)]);
+        let mut graph = GraphAdjList::new();
+        graph.add_adj_list(Vertex(0), vec![Vertex(1)]);
+        graph.add_adj_list(Vertex(1), vec![Vertex(0), Vertex(2)]);
+        graph.add_adj_list(Vertex(2), vec![Vertex(1), Vertex(3)]);
+        graph.add_adj_list(Vertex(3), vec![Vertex(2), Vertex(0)]);
 
-        assert_eq!(girth::vet_cycle_len_bfs(&mut graph, Vertex(0)), 4);
+        assert_eq!(vet_cycle_len_bfs(&mut graph, Vertex(0)), 4);
     }
 
     #[test]
     fn test_compute_girth_no_cycle() {
-        let mut graph = GraphAdjList {
-            adj_list: HashMap::new(),
-        };
-        graph.adj_list.insert(Vertex(0), vec![Vertex(1)]);
-        graph.adj_list.insert(Vertex(1), vec![Vertex(0), Vertex(2)]);
-        graph.adj_list.insert(Vertex(2), vec![Vertex(1)]);
+        let mut graph = GraphAdjList::new();
+        graph.add_adj_list(Vertex(0), vec![Vertex(1)]);
+        graph.add_adj_list(Vertex(1), vec![Vertex(0), Vertex(2)]);
+        graph.add_adj_list(Vertex(2), vec![Vertex(1)]);
 
-        assert_eq!(girth::compute_girth(&mut graph, 3), "infinity".to_string());
+        assert_eq!(compute_girth(&mut graph, 3), "infinity".to_string());
     }
 
     #[test]
     fn test_compute_girth_with_cycle() {
-        let mut graph = GraphAdjList {
-            adj_list: HashMap::new(),
-        };
-        graph.adj_list.insert(Vertex(0), vec![Vertex(1)]);
-        graph.adj_list.insert(Vertex(1), vec![Vertex(0), Vertex(2)]);
-        graph.adj_list.insert(Vertex(2), vec![Vertex(1), Vertex(3)]);
-        graph.adj_list.insert(Vertex(3), vec![Vertex(2), Vertex(0)]);
+        let mut graph = GraphAdjList::new();
+        graph.add_adj_list(Vertex(0), vec![Vertex(1)]);
+        graph.add_adj_list(Vertex(1), vec![Vertex(0), Vertex(2)]);
+        graph.add_adj_list(Vertex(2), vec![Vertex(1), Vertex(3)]);
+        graph.add_adj_list(Vertex(3), vec![Vertex(2), Vertex(0)]);
 
-        assert_eq!(girth::compute_girth(&mut graph, 4), "4".to_string());
+        assert_eq!(compute_girth(&mut graph, 4), "4".to_string());
     }
 }

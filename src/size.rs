@@ -1,6 +1,6 @@
 use crate::GraphAdjList;
 
-fn get_size(graph: &GraphAdjList) -> usize {
+pub fn get_size(graph: &GraphAdjList) -> usize {
     let count: usize = graph
         .adj_list
         .values()

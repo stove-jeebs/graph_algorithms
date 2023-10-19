@@ -14,21 +14,26 @@ pub struct GraphAdjList {
 }
 
 impl GraphAdjList {
-    fn new() -> Self {
-        GraphAdjList {
+    pub fn new() -> Self {
+        Self {
             adj_list: HashMap::new(),
         }
     }
 
-    fn add_adj_list(&mut self, vet: Vertex, adj: Vec<Vertex>) {
+    pub fn add_adj_list(&mut self, vet: Vertex, adj: Vec<Vertex>) {
         self.adj_list
             .entry(vet)
             .and_modify(|_| panic!("line already exists"))
             .or_insert(adj);
     }
+
+    pub fn size(&self) -> usize {
+        self.adj_list.len()
+    }
 }
 
 fn read_graph() -> Option<(GraphAdjList, usize)> {
+    // read input and initialize an adjacency list
     let mut num_nodes = String::new();
     stdin()
         .read_line(&mut num_nodes)
@@ -67,13 +72,16 @@ fn main() {
     let args: Vec<String> = std::env::args().collect();
     let mut idx = 1;
     while let Some((graph, _num_nodes)) = read_graph() {
-        if args.contains(&"--size".to_string()) {
+        if args.contains(&"--size".to_owned()) {
             // task 1
             size::print(idx, &graph);
-        } else if args.contains(&"--component_order".to_string()) {
+        } else if args.contains(&"--component_order".to_owned()) {
             // task 2
             component_order::print(idx, &graph);
-        } else if args.contains(&"--girth".to_string()) {
+        } else if args.contains(&"--matrix".to_owned()) {
+            // task 3
+            matrix::print(&graph);
+        } else if args.contains(&"--girth".to_owned()) {
             // task 5
             girth::print(idx, &graph, _num_nodes);
         } else {

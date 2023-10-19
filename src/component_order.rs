@@ -49,7 +49,6 @@ pub fn print(idx: usize, graph: &GraphAdjList) {
 
 #[cfg(test)]
 mod tests {
-
     use super::*;
 
     #[test]

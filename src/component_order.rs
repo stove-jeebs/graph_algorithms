@@ -2,7 +2,7 @@ use crate::{GraphAdjList, Vertex};
 use std::collections::{HashSet, VecDeque};
 
 // find the order of a component
-fn dfs(start_vet: &Vertex, graph: &GraphAdjList, visited: &mut HashSet<Vertex>) -> usize {
+fn bfs(start_vet: &Vertex, graph: &GraphAdjList, visited: &mut HashSet<Vertex>) -> usize {
     if visited.contains(&start_vet) {
         return 0;
     }
@@ -10,16 +10,14 @@ fn dfs(start_vet: &Vertex, graph: &GraphAdjList, visited: &mut HashSet<Vertex>) 
     visited.insert(*start_vet);
     let mut que = VecDeque::new();
     que.push_back(*start_vet);
-    while !que.is_empty() {
-        let vet = que.pop_front().unwrap();
+    while let Some(vet) = que.pop_front() {
         order += 1;
         if let Some(adj_vets) = graph.adj_list.get(&vet) {
-            for &adj_vet in adj_vets {
-                if visited.contains(&adj_vet) {
-                    continue;
+            for &neighbour in adj_vets {
+                if !visited.contains(&neighbour) {
+                    que.push_back(neighbour);
+                    visited.insert(neighbour);
                 }
-                que.push_back(adj_vet);
-                visited.insert(adj_vet);
             }
         }
     }
@@ -31,7 +29,7 @@ pub fn largest_component_order(graph: &GraphAdjList) -> usize {
     let mut max_order = 0;
 
     for (node, _) in graph.adj_list.iter() {
-        let order = dfs(node, &graph, &mut visited);
+        let order = bfs(node, &graph, &mut visited);
         if order > max_order {
             max_order = order;
         }
@@ -56,7 +54,7 @@ mod tests {
         let graph = GraphAdjList::new();
         let vet = Vertex(1);
         let mut visited = HashSet::from([Vertex(0), Vertex(1)]);
-        assert_eq!(dfs(&vet, &graph, &mut visited), 0);
+        assert_eq!(bfs(&vet, &graph, &mut visited), 0);
     }
 
     #[test]
@@ -64,7 +62,7 @@ mod tests {
         let graph = GraphAdjList::new();
         let vet = Vertex(1);
         let mut visited = HashSet::from([Vertex(0), Vertex(2)]);
-        assert_eq!(dfs(&vet, &graph, &mut visited), 1);
+        assert_eq!(bfs(&vet, &graph, &mut visited), 1);
     }
 
     #[test]

@@ -44,7 +44,7 @@ pub fn is_disconnected(graph: &GraphAdjList) -> bool {
     find_connected_components(graph).len() > 1
 }
 
-pub fn diameter(graph: &GraphAdjList) -> usize {
+pub fn compute_diameter(graph: &GraphAdjList) -> usize {
     let mut max_diameter = 0;
 
     for component in find_connected_components(graph) {
@@ -60,7 +60,7 @@ pub fn diameter(graph: &GraphAdjList) -> usize {
 }
 
 pub fn print(idx: usize, graph: &GraphAdjList) {
-    let diameter = diameter(graph);
+    let diameter = compute_diameter(graph);
     if !is_disconnected(graph) {
         println!("Graph {idx} has diameter {diameter}.");
     } else {

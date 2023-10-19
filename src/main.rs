@@ -82,6 +82,9 @@ fn main() {
         } else if args.contains(&"--matrix".to_owned()) {
             // task 3
             matrix::print(&graph);
+        } else if args.contains(&"--diameter".to_owned()) {
+            // task 4
+            diameter::print(idx, &graph);
         } else if args.contains(&"--girth".to_owned()) {
             // task 5
             girth::print(idx, &graph, _num_nodes);

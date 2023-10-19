@@ -1,6 +1,7 @@
 use std::{collections::HashMap, io::stdin};
 
 pub mod component_order;
+pub mod diameter;
 pub mod girth;
 pub mod matrix;
 pub mod size;

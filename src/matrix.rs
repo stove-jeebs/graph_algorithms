@@ -94,14 +94,4 @@ mod tests {
         assert_eq!(graph.size(), 3);
         assert_eq!(adj_list_to_mat(&graph).unwrap(), expected_matrix);
     }
-
-    #[test]
-    fn test_print_matrix() {
-        let mut graph = GraphAdjList::new();
-        graph.add_adj_list(Vertex(0), vec![Vertex(1)]);
-        graph.add_adj_list(Vertex(1), vec![Vertex(0), Vertex(2)]);
-        graph.add_adj_list(Vertex(2), vec![Vertex(1)]);
-
-        assert_eq!(1, 1);
-    }
 }

@@ -1,33 +1,33 @@
 Graph 1 has diameter 2.
-Graph 2 has diameter 4.
-Graph 3 has diameter 4.
-Graph 4 has diameter 3.
+Graph 2 is disconnected.
+Graph 3 is disconnected.
+Graph 4 is disconnected.
 Graph 5 has diameter 4.
 Graph 6 has diameter 3.
 Graph 7 has diameter 2.
 Graph 8 has diameter 2.
 Graph 9 has diameter 2.
 Graph 10 has diameter 2.
-Graph 11 has diameter 3.
+Graph 11 is disconnected.
 Graph 12 has diameter 4.
-Graph 13 has diameter 4.
+Graph 13 is disconnected.
 Graph 14 has diameter 3.
 Graph 15 has diameter 3.
 Graph 16 has diameter 3.
 Graph 17 has diameter 2.
 Graph 18 has diameter 2.
 Graph 19 has diameter 2.
-Graph 20 has diameter 3.
-Graph 21 has diameter 3.
-Graph 22 has diameter 4.
-Graph 23 has diameter 3.
+Graph 20 is disconnected.
+Graph 21 is disconnected.
+Graph 22 is disconnected.
+Graph 23 is disconnected.
 Graph 24 has diameter 3.
 Graph 25 has diameter 2.
 Graph 26 has diameter 2.
 Graph 27 has diameter 2.
 Graph 28 has diameter 2.
-Graph 29 has diameter 2.
-Graph 30 has diameter 5.
+Graph 29 is disconnected.
+Graph 30 is disconnected.
 Graph 31 has diameter 3.
 Graph 32 has diameter 3.
 Graph 33 has diameter 2.
@@ -35,17 +35,17 @@ Graph 34 has diameter 2.
 Graph 35 has diameter 2.
 Graph 36 has diameter 2.
 Graph 37 has diameter 2.
-Graph 38 has diameter 2.
-Graph 39 has diameter 6.
-Graph 40 has diameter 4.
+Graph 38 is disconnected.
+Graph 39 is disconnected.
+Graph 40 is disconnected.
 Graph 41 has diameter 4.
-Graph 42 has diameter 3.
+Graph 42 is disconnected.
 Graph 43 has diameter 2.
 Graph 44 has diameter 2.
 Graph 45 has diameter 2.
 Graph 46 has diameter 2.
-Graph 47 has diameter 1.
-Graph 48 has diameter 4.
+Graph 47 is disconnected.
+Graph 48 is disconnected.
 Graph 49 has diameter 3.
 Graph 50 has diameter 2.
 Graph 51 has diameter 2.
@@ -53,16 +53,16 @@ Graph 52 has diameter 2.
 Graph 53 has diameter 2.
 Graph 54 has diameter 2.
 Graph 55 has diameter 2.
-Graph 56 has diameter 1.
+Graph 56 is disconnected.
 Graph 57 has diameter 3.
-Graph 58 has diameter 3.
+Graph 58 is disconnected.
 Graph 59 has diameter 3.
 Graph 60 has diameter 2.
 Graph 61 has diameter 3.
 Graph 62 has diameter 2.
 Graph 63 has diameter 2.
 Graph 64 has diameter 2.
-Graph 65 has diameter 7.
+Graph 65 is disconnected.
 Graph 66 has diameter 4.
 Graph 67 has diameter 3.
 Graph 68 has diameter 3.
@@ -71,7 +71,7 @@ Graph 70 has diameter 2.
 Graph 71 has diameter 2.
 Graph 72 has diameter 2.
 Graph 73 has diameter 2.
-Graph 74 has diameter 8.
+Graph 74 is disconnected.
 Graph 75 has diameter 5.
 Graph 76 has diameter 3.
 Graph 77 has diameter 3.
@@ -80,7 +80,7 @@ Graph 79 has diameter 2.
 Graph 80 has diameter 2.
 Graph 81 has diameter 2.
 Graph 82 has diameter 2.
-Graph 83 has diameter 5.
+Graph 83 is disconnected.
 Graph 84 has diameter 6.
 Graph 85 has diameter 3.
 Graph 86 has diameter 3.
@@ -89,8 +89,8 @@ Graph 88 has diameter 2.
 Graph 89 has diameter 2.
 Graph 90 has diameter 2.
 Graph 91 has diameter 2.
-Graph 92 has diameter 10.
-Graph 93 has diameter 4.
+Graph 92 is disconnected.
+Graph 93 is disconnected.
 Graph 94 has diameter 3.
 Graph 95 has diameter 3.
 Graph 96 has diameter 2.
@@ -98,7 +98,7 @@ Graph 97 has diameter 2.
 Graph 98 has diameter 2.
 Graph 99 has diameter 2.
 Graph 100 has diameter 2.
-Graph 101 has diameter 6.
+Graph 101 is disconnected.
 Graph 102 has diameter 5.
 Graph 103 has diameter 3.
 Graph 104 has diameter 3.
@@ -107,7 +107,7 @@ Graph 106 has diameter 2.
 Graph 107 has diameter 2.
 Graph 108 has diameter 2.
 Graph 109 has diameter 2.
-Graph 110 has diameter 5.
+Graph 110 is disconnected.
 Graph 111 has diameter 4.
 Graph 112 has diameter 3.
 Graph 113 has diameter 3.
@@ -116,8 +116,8 @@ Graph 115 has diameter 2.
 Graph 116 has diameter 2.
 Graph 117 has diameter 2.
 Graph 118 has diameter 2.
-Graph 119 has diameter 7.
-Graph 120 has diameter 6.
+Graph 119 is disconnected.
+Graph 120 is disconnected.
 Graph 121 has diameter 3.
 Graph 122 has diameter 3.
 Graph 123 has diameter 2.
@@ -125,7 +125,7 @@ Graph 124 has diameter 3.
 Graph 125 has diameter 2.
 Graph 126 has diameter 2.
 Graph 127 has diameter 2.
-Graph 128 has diameter 10.
+Graph 128 is disconnected.
 Graph 129 has diameter 4.
 Graph 130 has diameter 4.
 Graph 131 has diameter 3.
@@ -134,7 +134,7 @@ Graph 133 has diameter 2.
 Graph 134 has diameter 2.
 Graph 135 has diameter 2.
 Graph 136 has diameter 2.
-Graph 137 has diameter 9.
+Graph 137 is disconnected.
 Graph 138 has diameter 4.
 Graph 139 has diameter 3.
 Graph 140 has diameter 3.
@@ -143,8 +143,8 @@ Graph 142 has diameter 2.
 Graph 143 has diameter 2.
 Graph 144 has diameter 2.
 Graph 145 has diameter 2.
-Graph 146 has diameter 6.
-Graph 147 has diameter 4.
+Graph 146 is disconnected.
+Graph 147 is disconnected.
 Graph 148 has diameter 4.
 Graph 149 has diameter 3.
 Graph 150 has diameter 2.
@@ -152,7 +152,7 @@ Graph 151 has diameter 2.
 Graph 152 has diameter 2.
 Graph 153 has diameter 2.
 Graph 154 has diameter 2.
-Graph 155 has diameter 9.
+Graph 155 is disconnected.
 Graph 156 has diameter 4.
 Graph 157 has diameter 3.
 Graph 158 has diameter 3.
@@ -161,7 +161,7 @@ Graph 160 has diameter 2.
 Graph 161 has diameter 2.
 Graph 162 has diameter 2.
 Graph 163 has diameter 2.
-Graph 164 has diameter 5.
+Graph 164 is disconnected.
 Graph 165 has diameter 4.
 Graph 166 has diameter 3.
 Graph 167 has diameter 2.
@@ -188,7 +188,7 @@ Graph 187 has diameter 2.
 Graph 188 has diameter 2.
 Graph 189 has diameter 2.
 Graph 190 has diameter 2.
-Graph 191 has diameter 6.
+Graph 191 is disconnected.
 Graph 192 has diameter 4.
 Graph 193 has diameter 3.
 Graph 194 has diameter 3.
@@ -197,7 +197,7 @@ Graph 196 has diameter 2.
 Graph 197 has diameter 2.
 Graph 198 has diameter 2.
 Graph 199 has diameter 2.
-Graph 200 has diameter 7.
+Graph 200 is disconnected.
 Graph 201 has diameter 4.
 Graph 202 has diameter 3.
 Graph 203 has diameter 3.
@@ -206,7 +206,7 @@ Graph 205 has diameter 2.
 Graph 206 has diameter 2.
 Graph 207 has diameter 2.
 Graph 208 has diameter 2.
-Graph 209 has diameter 6.
+Graph 209 is disconnected.
 Graph 210 has diameter 4.
 Graph 211 has diameter 3.
 Graph 212 has diameter 3.
@@ -215,7 +215,7 @@ Graph 214 has diameter 2.
 Graph 215 has diameter 2.
 Graph 216 has diameter 2.
 Graph 217 has diameter 2.
-Graph 218 has diameter 7.
+Graph 218 is disconnected.
 Graph 219 has diameter 3.
 Graph 220 has diameter 3.
 Graph 221 has diameter 3.
@@ -224,7 +224,7 @@ Graph 223 has diameter 2.
 Graph 224 has diameter 2.
 Graph 225 has diameter 2.
 Graph 226 has diameter 2.
-Graph 227 has diameter 7.
+Graph 227 is disconnected.
 Graph 228 has diameter 3.
 Graph 229 has diameter 3.
 Graph 230 has diameter 2.
@@ -233,7 +233,7 @@ Graph 232 has diameter 2.
 Graph 233 has diameter 2.
 Graph 234 has diameter 2.
 Graph 235 has diameter 2.
-Graph 236 has diameter 6.
+Graph 236 is disconnected.
 Graph 237 has diameter 3.
 Graph 238 has diameter 3.
 Graph 239 has diameter 3.
@@ -242,7 +242,7 @@ Graph 241 has diameter 2.
 Graph 242 has diameter 2.
 Graph 243 has diameter 2.
 Graph 244 has diameter 2.
-Graph 245 has diameter 6.
+Graph 245 is disconnected.
 Graph 246 has diameter 4.
 Graph 247 has diameter 3.
 Graph 248 has diameter 3.

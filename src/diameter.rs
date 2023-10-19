@@ -1,5 +1,5 @@
 use crate::{GraphAdjList, Vertex};
-use std::collections::{HashMap, VecDeque};
+use std::collections::{HashMap, HashSet, VecDeque};
 
 fn bfs(graph: &GraphAdjList, start: Vertex) -> HashMap<Vertex, usize> {
     let mut distances: HashMap<Vertex, usize> = HashMap::new();
@@ -21,20 +21,47 @@ fn bfs(graph: &GraphAdjList, start: Vertex) -> HashMap<Vertex, usize> {
     distances
 }
 
-pub fn diameter(graph: &GraphAdjList) -> usize {
-    let mut diameter = 0;
+fn find_connected_components(graph: &GraphAdjList) -> Vec<HashSet<Vertex>> {
+    let mut visited = HashSet::new();
+    let mut components = Vec::new();
+
     for &vertex in graph.adj_list.keys() {
-        let distances = bfs(&graph, vertex);
-        if let Some(&max_distance) = distances.values().max() {
-            diameter = diameter.max(max_distance);
+        if !visited.contains(&vertex) {
+            let mut component = HashSet::new();
+            let distances = bfs(graph, vertex);
+            for vertex in distances.keys() {
+                visited.insert(*vertex);
+                component.insert(*vertex);
+            }
+            components.push(component);
         }
     }
-    diameter
+
+    components
+}
+
+pub fn is_disconnected(graph: &GraphAdjList) -> bool {
+    find_connected_components(graph).len() > 1
+}
+
+pub fn diameter(graph: &GraphAdjList) -> usize {
+    let mut max_diameter = 0;
+
+    for component in find_connected_components(graph) {
+        for &vertex in &component {
+            let distances = bfs(graph, vertex);
+            if let Some(&max_distance) = distances.values().max() {
+                max_diameter = max_diameter.max(max_distance);
+            }
+        }
+    }
+
+    max_diameter
 }
 
 pub fn print(idx: usize, graph: &GraphAdjList) {
     let diameter = diameter(graph);
-    if diameter != 0 {
+    if !is_disconnected(graph) {
         println!("Graph {idx} has diameter {diameter}.");
     } else {
         println!("Graph {idx} is disconnected.");

@@ -1,8 +1,8 @@
 use crate::GraphAdjList;
 
 #[derive(Debug)]
-pub enum GraphConversionError {
-    OutOfBoundsVertex(usize),
+pub enum MatrixError {
+    OutOfBounds,
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -28,7 +28,17 @@ impl GraphAdjMat {
     }
 
     pub fn set_edge(&mut self, from: usize, to: usize) {
-        self.adj_mat[from][to] = 1;
+        match self
+            .adj_mat
+            .get_mut(from)
+            .and_then(|inner| inner.get_mut(to))
+        {
+            Some(value) => *value = 1,
+            None => panic!(
+                "No value at the specified index: {:?}",
+                MatrixError::OutOfBounds
+            ),
+        }
     }
 
     pub fn size(&self) -> usize {
@@ -36,30 +46,21 @@ impl GraphAdjMat {
     }
 }
 
-pub fn adj_list_to_mat(graph: &GraphAdjList) -> Result<GraphAdjMat, GraphConversionError> {
+pub fn adj_list_to_mat(graph: &GraphAdjList) -> GraphAdjMat {
     let mut matrix = GraphAdjMat::new_from_size(graph.size());
 
     for (node, neighbours) in graph.adj_list.iter() {
-        if node.0 >= matrix.adj_mat.len() {
-            return Err(GraphConversionError::OutOfBoundsVertex(node.0));
-        }
         for vet in neighbours {
-            if vet.0 >= matrix.adj_mat[node.0].len() {
-                return Err(GraphConversionError::OutOfBoundsVertex(vet.0));
-            }
-            matrix.adj_mat[node.0][vet.0] = 1;
+            matrix.set_edge(node.0, vet.0);
         }
     }
 
-    Ok(matrix)
+    matrix
 }
 
 pub fn print(graph: &GraphAdjList) {
     // converts an adjacency list into a matrix
-    let matrix: GraphAdjMat = match adj_list_to_mat(&graph) {
-        Ok(graph_mat) => graph_mat,
-        Err(err) => panic!("GraphConversionError: {err:?}"),
-    };
+    let matrix: GraphAdjMat = adj_list_to_mat(&graph);
     let mut builder = String::from(format!("{}", matrix.size()));
     // for each column in the matrix join the values into a string separated by spaces between
     for col in matrix.adj_mat.iter() {
@@ -92,6 +93,6 @@ mod tests {
         };
 
         assert_eq!(graph.size(), 3);
-        assert_eq!(adj_list_to_mat(&graph).unwrap(), expected_matrix);
+        assert_eq!(adj_list_to_mat(&graph), expected_matrix);
     }
 }

@@ -12,17 +12,13 @@ pub struct GraphAdjMat {
 
 impl Default for GraphAdjMat {
     fn default() -> Self {
-        Self::new()
-    }
-}
-
-impl GraphAdjMat {
-    pub fn new() -> Self {
         Self {
             adj_mat: Vec::new(),
         }
     }
+}
 
+impl GraphAdjMat {
     pub fn new_from_size(num_nodes: usize) -> Self {
         Self {
             adj_mat: vec![vec![0; num_nodes]; num_nodes],
@@ -89,7 +85,7 @@ mod tests {
 
     #[test]
     fn test_conversion() {
-        let mut graph = GraphAdjList::new();
+        let mut graph = GraphAdjList::default();
         graph.add_adj_list(Vertex(0), vec![Vertex(1)]);
         graph.add_adj_list(Vertex(1), vec![Vertex(0), Vertex(2)]);
         graph.add_adj_list(Vertex(2), vec![Vertex(1)]);

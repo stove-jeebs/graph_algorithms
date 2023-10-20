@@ -60,7 +60,7 @@ mod test {
 
     #[test]
     fn test_vet_cycle_len_bfs_no_cycle() {
-        let mut graph = GraphAdjList::new();
+        let mut graph = GraphAdjList::default();
         graph.add_adj_list(Vertex(0), vec![Vertex(1)]);
         graph.add_adj_list(Vertex(1), vec![Vertex(0), Vertex(2)]);
         graph.add_adj_list(Vertex(2), vec![Vertex(1)]);
@@ -70,7 +70,7 @@ mod test {
 
     #[test]
     fn test_vet_cycle_len_bfs_with_cycle() {
-        let mut graph = GraphAdjList::new();
+        let mut graph = GraphAdjList::default();
         graph.add_adj_list(Vertex(0), vec![Vertex(1)]);
         graph.add_adj_list(Vertex(1), vec![Vertex(0), Vertex(2)]);
         graph.add_adj_list(Vertex(2), vec![Vertex(1), Vertex(3)]);
@@ -81,7 +81,7 @@ mod test {
 
     #[test]
     fn test_compute_girth_no_cycle() {
-        let mut graph = GraphAdjList::new();
+        let mut graph = GraphAdjList::default();
         graph.add_adj_list(Vertex(0), vec![Vertex(1)]);
         graph.add_adj_list(Vertex(1), vec![Vertex(0), Vertex(2)]);
         graph.add_adj_list(Vertex(2), vec![Vertex(1)]);
@@ -91,7 +91,7 @@ mod test {
 
     #[test]
     fn test_compute_girth_with_cycle() {
-        let mut graph = GraphAdjList::new();
+        let mut graph = GraphAdjList::default();
         graph.add_adj_list(Vertex(0), vec![Vertex(1)]);
         graph.add_adj_list(Vertex(1), vec![Vertex(0), Vertex(2)]);
         graph.add_adj_list(Vertex(2), vec![Vertex(1), Vertex(3)]);

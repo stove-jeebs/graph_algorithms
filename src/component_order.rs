@@ -51,7 +51,7 @@ mod tests {
 
     #[test]
     fn test_dfs_visited_vet() {
-        let graph = GraphAdjList::new();
+        let graph = GraphAdjList::default();
         let vet = Vertex(1);
         let mut visited = HashSet::from([Vertex(0), Vertex(1)]);
         assert_eq!(bfs(&vet, &graph, &mut visited), 0);
@@ -59,7 +59,7 @@ mod tests {
 
     #[test]
     fn test_dfs_unvisited_vet() {
-        let graph = GraphAdjList::new();
+        let graph = GraphAdjList::default();
         let vet = Vertex(1);
         let mut visited = HashSet::from([Vertex(0), Vertex(2)]);
         assert_eq!(bfs(&vet, &graph, &mut visited), 1);
@@ -75,7 +75,7 @@ mod tests {
          *
          * largest component order is 3
          * */
-        let mut graph = GraphAdjList::new();
+        let mut graph = GraphAdjList::default();
         graph.add_adj_list(Vertex(0), vec![Vertex(1), Vertex(2)]);
         graph.add_adj_list(Vertex(1), vec![Vertex(0)]);
         graph.add_adj_list(Vertex(2), vec![Vertex(0)]);

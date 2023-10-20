@@ -16,17 +16,13 @@ pub struct GraphAdjList {
 
 impl Default for GraphAdjList {
     fn default() -> Self {
-        Self::new()
-    }
-}
-
-impl GraphAdjList {
-    pub fn new() -> Self {
         Self {
             adj_list: HashMap::new(),
         }
     }
+}
 
+impl GraphAdjList {
     pub fn add_adj_list(&mut self, vet: Vertex, adj: Vec<Vertex>) {
         self.adj_list
             .entry(vet)
@@ -54,7 +50,7 @@ fn read_graph() -> Option<(GraphAdjList, usize)> {
         return None;
     }
 
-    let mut graph = GraphAdjList::new();
+    let mut graph = GraphAdjList::default();
     for i in 0..num_nodes {
         let mut line = String::new();
         stdin().read_line(&mut line).expect("Failed to read line");

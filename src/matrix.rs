@@ -10,6 +10,12 @@ pub struct GraphAdjMat {
     adj_mat: Vec<Vec<u8>>,
 }
 
+impl Default for GraphAdjMat {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl GraphAdjMat {
     pub fn new() -> Self {
         Self {
@@ -60,8 +66,8 @@ pub fn adj_list_to_mat(graph: &GraphAdjList) -> GraphAdjMat {
 
 pub fn print(graph: &GraphAdjList) {
     // converts an adjacency list into a matrix
-    let matrix: GraphAdjMat = adj_list_to_mat(&graph);
-    let mut builder = String::from(format!("{}", matrix.size()));
+    let matrix: GraphAdjMat = adj_list_to_mat(graph);
+    let mut builder = format!("{}", matrix.size());
     // for each column in the matrix join the values into a string separated by spaces between
     for col in matrix.adj_mat.iter() {
         builder.push_str(&format!(

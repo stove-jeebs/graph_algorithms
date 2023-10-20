@@ -14,6 +14,12 @@ pub struct GraphAdjList {
     pub adj_list: HashMap<Vertex, Vec<Vertex>>,
 }
 
+impl Default for GraphAdjList {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl GraphAdjList {
     pub fn new() -> Self {
         Self {
@@ -53,7 +59,6 @@ fn read_graph() -> Option<(GraphAdjList, usize)> {
         let mut line = String::new();
         stdin().read_line(&mut line).expect("Failed to read line");
         let line: Vec<Vertex> = line
-            .trim()
             .split_whitespace()
             .map(|num_str| {
                 Vertex(

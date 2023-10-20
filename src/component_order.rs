@@ -3,7 +3,7 @@ use std::collections::{HashSet, VecDeque};
 
 // find the order of a component
 fn bfs(start_vet: &Vertex, graph: &GraphAdjList, visited: &mut HashSet<Vertex>) -> usize {
-    if visited.contains(&start_vet) {
+    if visited.contains(start_vet) {
         return 0;
     }
     let mut order = 0;
@@ -29,7 +29,7 @@ pub fn largest_component_order(graph: &GraphAdjList) -> usize {
     let mut max_order = 0;
 
     for (node, _) in graph.adj_list.iter() {
-        let order = bfs(node, &graph, &mut visited);
+        let order = bfs(node, graph, &mut visited);
         if order > max_order {
             max_order = order;
         }

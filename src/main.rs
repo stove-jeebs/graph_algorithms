@@ -90,7 +90,9 @@ fn main() {
             // task 5
             girth::print(idx, &graph, _num_nodes);
         } else {
-            println!("Please choose either --size or --girth");
+            println!(
+                "Please choose from:\n1. size\n2. component_order\n3. matrix\n4. diameter\n5. girth"
+            );
         }
         idx += 1;
     }
